@@ -48,7 +48,7 @@ const Recommendation = () => {
             >
               {book.image && (
                 <img
-                  src={`http://localhost:5000/${book.image}`}
+                  src={`https://bookrecommendationbackend-production.up.railway.app/${book.image}`}
                   alt={book.title}
                   className="w-full h-48 object-cover mb-4 rounded-t-lg"
                 />

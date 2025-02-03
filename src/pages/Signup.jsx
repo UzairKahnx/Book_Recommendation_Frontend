@@ -18,7 +18,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/signup", {
+      const response = await axios.post("https://bookrecommendationbackend-production.up.railway.app/api/auth/signup", {
         email,
         password,
         role: "admin" // Change role if needed

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://bookrecommendationbackend-production.up.railway.app/api',
 });
 
 // Attach the token to every request if it exists

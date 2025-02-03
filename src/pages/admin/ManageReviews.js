@@ -8,7 +8,7 @@ const ManageReviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/reviews');
+        const response = await axios.get('https://bookrecommendationbackend-production.up.railway.app/api/reviews');
         setReviews(response.data);
       } catch (err) {
         setError('Failed to fetch reviews');
@@ -19,7 +19,7 @@ const ManageReviews = () => {
 
   const handleDelete = async (reviewId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/reviews/${reviewId}`);
+      await axios.delete(`https://bookrecommendationbackend-production.up.railway.app/api/reviews/${reviewId}`);
       setReviews(reviews.filter((review) => review._id !== reviewId));
     } catch (err) {
       setError('Failed to delete review');

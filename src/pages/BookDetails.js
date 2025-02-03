@@ -21,10 +21,10 @@ const BookDetails = () => {
       setLoading(true);
       setError(null);
       try {
-        const bookResponse = await axios.get(`http://localhost:5000/api/books/${id}`);
+        const bookResponse = await axios.get(`https://bookrecommendationbackend-production.up.railway.app/api/books/${id}`);
         setBook(bookResponse.data);
 
-        const reviewsResponse = await axios.get(`http://localhost:5000/api/books/${id}/reviews`);
+        const reviewsResponse = await axios.get(`https://bookrecommendationbackend-production.up.railway.app/api/books/${id}/reviews`);
         setReviews(reviewsResponse.data);
       } catch (err) {
         setError('Error fetching book details. Please try again later.');
@@ -40,7 +40,7 @@ const BookDetails = () => {
     const fetchRelatedBooks = async () => {
       if (!book) return;
       try {
-        const response = await axios.get(`http://localhost:5000/api/books?genre=${book.genre}`);
+        const response = await axios.get(`https://bookrecommendationbackend-production.up.railway.app/api/books?genre=${book.genre}`);
         setRelatedBooks(response.data.filter(b => b._id !== book._id));
       } catch (err) {
         console.error('Error fetching related books:', err);
@@ -54,7 +54,7 @@ const BookDetails = () => {
   const handleSubmitReview = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:5000/api/books/${id}/reviews`, reviewForm);
+      const response = await axios.post(`https://bookrecommendationbackend-production.up.railway.app/api/books/${id}/reviews`, reviewForm);
       setReviews([...reviews, response.data]);
       setReviewForm({ reviewerName: '', rating: 1, comment: '' });
       alert('Review submitted successfully!');
@@ -80,7 +80,7 @@ const BookDetails = () => {
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 mb-8">
         <div className="flex items-center mb-6 flex-wrap md:flex-nowrap">
           <img
-            src={`http://localhost:5000/${book.image.startsWith('uploads') ? book.image : `uploads/${book.image}`}`}
+            src={`https://bookrecommendationbackend-production.up.railway.app/${book.image.startsWith('uploads') ? book.image : `uploads/${book.image}`}`}
             alt={book.title}
             className="w-48 h-64 object-cover mb-4 rounded-lg shadow-md md:mb-0 md:mr-6"
           />
@@ -164,7 +164,7 @@ const BookDetails = () => {
               relatedBooks.map((relatedBook) => (
                 <div key={relatedBook._id} className="p-4 bg-white shadow-lg rounded-lg">
                   <img
-                    src={`http://localhost:5000/${relatedBook.image.startsWith('uploads') ? relatedBook.image : `uploads/${relatedBook.image}`}`}
+                    src={`https://bookrecommendationbackend-production.up.railway.app/${relatedBook.image.startsWith('uploads') ? relatedBook.image : `uploads/${relatedBook.image}`}`}
                     alt={relatedBook.title}
                     className="w-full h-48 object-cover mb-4 rounded-md"
                   />

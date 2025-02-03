@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/books');
+        const response = await axios.get('https://bookrecommendationbackend-production.up.railway.app/api/books');
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error);
@@ -64,7 +64,7 @@ const Home = () => {
             >
               {book.image && (
                 <img
-                  src={`http://localhost:5000/${book.image}`}
+                  src={`https://bookrecommendationbackend-production.up.railway.app/${book.image}`}
                   alt={book.title}
                   className="w-full h-48 object-cover mb-4 rounded-t-lg"
                 />

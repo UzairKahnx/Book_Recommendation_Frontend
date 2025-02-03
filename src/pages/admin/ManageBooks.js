@@ -7,7 +7,7 @@ const ManageBooks = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/books');
+      const response = await axios.get('https://bookrecommendationbackend-production.up.railway.app/api/books');
       console.log('Books fetched:', response.data); // Log the fetched data
       setBooks(response.data);
     } catch (error) {
@@ -35,7 +35,7 @@ const ManageBooks = () => {
   const handleDelete = async (id) => {
     console.log('Deleting book with ID:', id); // Log the book ID
     try {
-      const response = await axios.delete(`http://localhost:5000/api/books/${id}`);
+      const response = await axios.delete(`https://bookrecommendationbackend-production.up.railway.app/api/books/${id}`);
       console.log('Delete response:', response.data); // Log the response
   
       if (response.status === 200) {
@@ -79,7 +79,7 @@ const ManageBooks = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/books/${editingBook._id}`,
+        `https://bookrecommendationbackend-production.up.railway.app/api/books/${editingBook._id}`,
         formData,
         {
           headers: {
@@ -107,7 +107,7 @@ const ManageBooks = () => {
             <div key={book._id} className="p-4 bg-white shadow-md rounded-lg">
               {book.image && (
                 <img
-                  src={`http://localhost:5000/${book.image}`}
+                  src={`https://bookrecommendationbackend-production.up.railway.app/${book.image}`}
                   alt={book.title}
                   className="w-full h-48 object-cover mb-4 rounded-md"
                 />
@@ -191,7 +191,7 @@ const ManageBooks = () => {
                 />
                 {editingBook.image && !editingBook.imageFile && (
                   <img
-                    src={`http://localhost:5000/${editingBook.image}`}
+                    src={`https://bookrecommendationbackend-production.up.railway.app/${editingBook.image}`}
                     alt="Current Book Cover"
                     className="mt-2 w-24 h-24 object-cover rounded-md"
                   />

@@ -12,7 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      const response = await axios.post("https://bookrecommendationbackend-production.up.railway.app/api/auth/login", { email, password });
       const { token, role } = response.data;
       
       if (!token || !role) {

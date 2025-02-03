@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // Set up the base URL for your backend API
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://bookrecommendationbackend-production.up.railway.app/api';
 
 // Function for user login
 export const loginUser = async (email, password) => {
